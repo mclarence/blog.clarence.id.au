@@ -1,5 +1,5 @@
 site: cm0
-url: https://blog.cm0.dev
+url: https://blog.clarence.id.au
 title: cm0.dev
 tagline: IT/Programming Blog
 description: >-
@@ -7,7 +7,7 @@ description: >-
 
 author:
   name: Clarence M.
-  url: https://cm0.dev
+  url: https://clarence.id.au
 
 googlewebfonts: Roboto+Mono:wght@400;500;700
 permalink: pretty
