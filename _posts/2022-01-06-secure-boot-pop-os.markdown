@@ -9,11 +9,9 @@ toc: true
 ---
 
 ## Intro
----
 How to boot PopOS (or any linux distro) with secure boot enabled.
 
 ## Prerequisites
----
 * This guide assumes that you have a working PopOS (21.10) installation and secure boot is currently disabled in the UEFI BIOS.
 * I also assume you have some experience working through the command line in linux.
 * These two files, obtainable [here](https://blog.hansenpartnership.com/linux-foundation-secure-boot-system-released/)
@@ -21,7 +19,6 @@ How to boot PopOS (or any linux distro) with secure boot enabled.
   * *Hashtool.efi*
 
 ## Steps
----
 1. Open a terminal session and gain root privileges.
 ```
 sudo -i
@@ -64,5 +61,4 @@ mv Preloader.efi systemd-bootx64.efi
 14. Once you have completed the above, reboot the system and it should successfully boot into PopOS with secure boot enabled.
 
 ## Notes
----
 * Sometimes when updating PopOS, it will modify the .efi files. This will prevent PopOS from booting with secure boot again. To fix this simply re-enroll the hashes again (Steps 9-13) to fix the issue.

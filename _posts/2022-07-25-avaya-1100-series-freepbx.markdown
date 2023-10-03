@@ -12,14 +12,12 @@ description: "This post describes how to use Avaya 1100 Series IP phones with Fr
 I had a few Avaya/Nortel 1120e/1140e IP phones laying around at home and decided to create a house phone and intercom system. Setting these phones up with FreePBX/Astericks was a chore and after many hours of trial and error and google searching, i've managed to get these working pretty well with FreePBX. 
 
 # Prerequisites
----
 * Advanced technical knowledge. This guide is not intended for beginners.
 * A working FreePBX/Asterisks server.
 * A TFTP server.
 * (Optional) A configurable DHCP server.
 
 # Converting Phones from UNISTIM to SIP
----
 If you have one of these phones, there is a good chance that it is running the old UNISTIM firmware. You will need to flash the SIP firmware to the phone in order to get it to work with FreePBX.
 
 In order to do this easily, a TFTP server should be used. [TFTPD64](https://pjo2.github.io/tftpd64/) is an example of one to use. Then configure your DHCP server to include the TFTP's server IP address in DHCP option 66. If your DHCP server does not allow you to do this, then use TFTPD64's built in DHCP server. 
@@ -63,11 +61,9 @@ You may also try using the phone's BootC mode which is essentialy its recovery m
 If in BootC mode, the phone continues to boot normally after `Starting DHCP...` is shown, you will need to manually input the TFTP server. Again hold Up + 2 but as soon as the phone's lights turn off, immediately press the four soft keys below the screen, from left to right in quick succession. If done correctly, you should see a manual configuration prompt. This mode will allow you to input your TFTP's server IP address. Use the phone's buttons to navigate through this menu. After you have applied the settings, the phone should reboot and upgrade the firmware.
 
 # Setting up FreePBX/Asterisk
----
 Once you have upgraded the firmware to SIP, you can now configure FreePBX. In the FreePBX GUI, create a **CHAN_SIP** extension. It is important that it is on CHAN_SIP as using CHAN_PJSIP will cause the phones to loose SIP registration to the PBX after some time. Take note that when using CHAN_SIP extensions, the SIP port will be 5160/udp instead of the standard 5060/udp port.
 
 # Creating Provisoning Files
----
 We will now create provisoning files for the phones so that they can connect to the FreePBX server. This can also be done manually by inputting the SIP domain and authentication credentials manually on the phone itself.
 
 Using the same TFTP server, open your device's model configuration file. So if you have a 1120e phone, open the `1120eSIP.cfg` file. Below the `[FW]` section, add the following section below it:
@@ -173,7 +169,6 @@ Replace...
 Once you are done, reboot the phone and it should grab the configuration files from the TFTP server and connect to your FreePBX server.
 
 # Configuring other Phone Features.
----
 There are a lot of paramters that can be configured. Refer to the [SIP Administration Guide](/assets/files/18125156.pdf) from Avaya for more information.
 
 ## Configuring Intercom/Paging Features
